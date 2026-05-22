@@ -120,7 +120,7 @@ Distill from Phase 1:
 - What named methodology, framework, or program does the prospect use? (Codified / semi-codified / tacit.)
 - What's their public voice — what tone, what cadence, what tells?
 - What's their stated theory of their own problem? (The diagnosis they hold today; the consultant's job is to confirm or revise it on the call.)
-- What recent shift would they point to as the trigger for this conversation? (New role, new board chair, new strategic plan, new capital campaign, new ED, etc.)
+- What recent shift would they point to as the trigger for this conversation? (Examples by domain: new exec hire or board chair in nonprofit-governance; new funding round or VP hire in SaaS GTM; new partnership or practice-acquisition in private-practice consulting; new mandate or operating-model shift in any vertical.)
 
 ---
 
@@ -167,7 +167,7 @@ Use the consultant's signature framework name (from `BRAND.md`) where relevant �
 ## About <Org>
 - Mission, size, vintage, location, stage
 - Leadership (names, tenure, signal)
-- Recent moves (funding, programs, transitions, governance changes)
+- Recent moves (funding, hiring, product launches, leadership transitions, strategic shifts — whatever applies to the prospect's domain)
 
 ## About <Contact>
 - Role, tenure, prior path
@@ -198,7 +198,7 @@ Use the consultant's signature framework name (from `BRAND.md`) where relevant �
 - If signals cross lanes, surface the tension here. One sentence on which conversation the consultant should steer toward.
 
 ## Things NOT to do
-- 1–3 specific anti-moves (e.g., "Don't pitch fundraising — they explicitly distance from fundraising consulting in their public writing").
+- 1–3 specific anti-moves grounded in the prospect's public signals (e.g., "Don't lead with price; lead with vision" / "Don't pitch [X] — they explicitly distance from [X] in their public writing" / "Don't compare them to [competitor] — they've publicly criticized that frame").
 
 ## Sources
 - <URL 1>
@@ -223,7 +223,7 @@ Section order matters. The TL;DR must be readable in 10 seconds. The consultant 
 ## CRITICAL CONSTRAINTS
 
 - **No fabrication.** Every signal claim cites evidence + URL. If you can't find evidence, say "insufficient evidence." Never guess.
-- **Listen-for items must be literal.** "Listen for ED-board tension" is wrong. "Listen for 'I'm tired of chasing board members about meeting prep'" is right. The consultant should be able to hear it land.
+- **Listen-for items must be literal.** Abstractions like "Listen for tension," "Listen for hiring frustration," or "Listen for pricing anxiety" are wrong. Literal quoted phrases the consultant could match in real time are right — e.g., "'I'm tired of chasing my board for meeting prep'" (governance), "'Every VP candidate ghosts us after the second round'" (SaaS hiring), "'We changed pricing and it didn't move the needle'" (pricing). The consultant should be able to hear the phrase land.
 - **The offer recommendation is a starting frame.** The consultant decides after the call. Say so.
 - **Lane awareness.** When `BRAND.md` declares `current_lane`, surface lane-crossing signals; never silently switch lanes.
 - **Brief is internal.** It is NOT sent to the prospect. Tone is operational. No softening.
@@ -294,9 +294,9 @@ Section order matters. The TL;DR must be readable in 10 seconds. The consultant 
 
 After presenting the brief, surface ONE specific elaboration the consultant could make to `ICP.md` based on what the research just revealed. Examples:
 
-- "I flagged 'capital campaign approaching' as a green flag but it's not in your ICP.md yet — want to add it?"
-- "Your ICP.md doesn't list 'post-strategic-plan drift' as a signal category, but it would have sharpened this brief. Want me to add it?"
-- "I couldn't confirm the prospect's board size from public sources. Worth listing 'board size unknown' as a Phase 1 follow-up the dossier-builder should grab next time."
+- (Governance domain) "I flagged 'capital campaign approaching' as a green flag but it's not in your ICP.md yet — want to add it?"
+- (SaaS GTM domain) "I noticed this prospect's pricing changed twice in 18 months but your ICP.md doesn't list 'pricing instability' as a signal category. Want me to add it?"
+- (Any domain) "Three of the listen-for phrases in your ICP.md are still abstractions ('feels stuck,' 'wants alignment') — want to refine them now while the call is fresh in your mind?"
 
 One concrete editing prompt the consultant can act on in 30 seconds. Do NOT edit `ICP.md` programmatically — surface the suggestion; they decide.
 
