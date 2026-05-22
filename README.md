@@ -20,10 +20,13 @@ Enable "Sync automatically" to receive updates as new skills ship.
 | build-carousel | `/carousel` | Live |
 | build-story | `/story` | Live |
 | speaking-engagement-scout | `/scout` | Live |
-| prep-discovery | `/intel` | Coming soon |
-| build-proposal | `/proposal` | Coming soon |
-| build-agreement | `/agreement` | Coming soon |
-| craft-outreach | `/outreach` | Coming soon |
+| craft-outreach | `/outreach` | Live |
+| prep-discovery | `/intel` | Live |
+| build-proposal | `/proposal` | Live |
+| build-agreement | `/agreement` | Live |
+| plan-content | `/plan` | Live |
+| write-newsletter | `/newsletter` | Live |
+| repurpose-content | `/repurpose` | Live |
 
 ## Project Knowledge
 

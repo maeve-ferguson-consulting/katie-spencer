@@ -12,6 +12,9 @@
     "./skills/craft-outreach",
     "./skills/prep-discovery",
     "./skills/build-proposal",
-    "./skills/build-agreement"
+    "./skills/build-agreement",
+    "./skills/plan-content",
+    "./skills/write-newsletter",
+    "./skills/repurpose-content"
   ]
 }

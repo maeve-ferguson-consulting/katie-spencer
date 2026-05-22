@@ -26,6 +26,9 @@ ALL_SKILLS=(
   prep-discovery
   build-proposal
   build-agreement
+  plan-content
+  write-newsletter
+  repurpose-content
 )
 
 if [[ $# -gt 0 ]]; then
