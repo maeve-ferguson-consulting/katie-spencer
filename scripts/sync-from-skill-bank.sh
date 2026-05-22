@@ -25,8 +25,7 @@ ALL_SKILLS=(
   craft-outreach
   prep-discovery
   build-proposal
-  # Add new skills here when they land in the skill-bank:
-  # build-agreement
+  build-agreement
 )
 
 if [[ $# -gt 0 ]]; then

@@ -11,6 +11,7 @@
     "./skills/speaking-engagement-scout",
     "./skills/craft-outreach",
     "./skills/prep-discovery",
-    "./skills/build-proposal"
+    "./skills/build-proposal",
+    "./skills/build-agreement"
   ]
 }
