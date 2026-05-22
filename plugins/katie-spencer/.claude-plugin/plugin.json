@@ -10,6 +10,7 @@
     "./skills/build-story",
     "./skills/speaking-engagement-scout",
     "./skills/craft-outreach",
-    "./skills/prep-discovery"
+    "./skills/prep-discovery",
+    "./skills/build-proposal"
   ]
 }
