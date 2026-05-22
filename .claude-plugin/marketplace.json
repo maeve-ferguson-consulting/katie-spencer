@@ -1,0 +1,18 @@
+{
+  "name": "katie-spencer",
+  "description": "Sales pipeline and content skills for Katie Spencer / Zipline Consulting — v1.0 · define-brand-voice, build-carousel, build-story, speaking-engagement-scout",
+  "owner": {
+    "name": "Chad Owen",
+    "email": "chad@maeveferguson.com"
+  },
+  "plugins": [
+    {
+      "name": "katie-spencer",
+      "source": "./plugins/katie-spencer",
+      "description": "Board governance consulting skills for Katie Spencer — prep-discovery, build-proposal, build-agreement, craft-outreach, and content tools",
+      "author": {
+        "name": "Chad Owen"
+      }
+    }
+  ]
+}

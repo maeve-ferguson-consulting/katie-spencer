@@ -1,0 +1,13 @@
+{
+  "name": "katie-spencer",
+  "description": "Board governance consulting skills for Katie Spencer — prep-discovery, build-proposal, build-agreement, craft-outreach, and content tools",
+  "author": {
+    "name": "Chad Owen"
+  },
+  "skills": [
+    "./skills/define-brand-voice",
+    "./skills/build-carousel",
+    "./skills/build-story",
+    "./skills/speaking-engagement-scout"
+  ]
+}
