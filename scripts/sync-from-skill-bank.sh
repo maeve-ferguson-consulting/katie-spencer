@@ -29,6 +29,7 @@ ALL_SKILLS=(
   plan-content
   write-newsletter
   repurpose-content
+  chief-of-staff
 )
 
 if [[ $# -gt 0 ]]; then
