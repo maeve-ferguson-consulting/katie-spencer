@@ -30,8 +30,8 @@ The skill accepts the database as a CSV file, a markdown table, or a Google Shee
 
 ```csv
 name,org,role,status,dossier_path,last_touch_date,last_touch_channel,last_touch_type,last_touch_result,hook_url,priority,notes
-Anya Patel,Memphis Music Initiative,Executive Director,cold,./dossiers/patel-anya.md,,,,,https://linkedin.com/posts/anya-patel-mmi-board-reengagement,high,Met briefly at Memphis Nonprofit Summit 2025
-Marcus Chen,Bay Area Foundation,Program Officer,warmed,./dossiers/chen-marcus.md,2026-04-12,linkedin-dm,first-touch,no-reply,,medium,
+<first prospect name>,<org>,<role>,cold,./dossiers/<lastname-firstname>.md,,,,,<URL of recent activity to tether to>,high,<referral source or context>
+<second prospect name>,<org>,<role>,warmed,./dossiers/<lastname-firstname>.md,2026-04-12,linkedin-dm,first-touch,no-reply,,medium,
 ```
 
 ## Example markdown table
@@ -39,8 +39,8 @@ Marcus Chen,Bay Area Foundation,Program Officer,warmed,./dossiers/chen-marcus.md
 ```markdown
 | name | org | role | status | dossier_path | last_touch_date | last_touch_type | last_touch_result | priority |
 |---|---|---|---|---|---|---|---|---|
-| Anya Patel | Memphis Music Initiative | ED | cold | ./dossiers/patel-anya.md | | | | high |
-| Marcus Chen | Bay Area Foundation | PO | warmed | ./dossiers/chen-marcus.md | 2026-04-12 | first-touch | no-reply | medium |
+| <prospect 1> | <org> | <role> | cold | ./dossiers/<file>.md | | | | high |
+| <prospect 2> | <org> | <role> | warmed | ./dossiers/<file>.md | 2026-04-12 | first-touch | no-reply | medium |
 ```
 
 ## Batch-mode behaviour

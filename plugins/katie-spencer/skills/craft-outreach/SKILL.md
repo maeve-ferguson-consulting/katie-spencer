@@ -19,7 +19,7 @@ This skill is consultant-agnostic. Every consultant-specific input (brand voice,
 |---|---|---|
 | `BRAND.md` | Voice, signature phrases, banned words, dialect, person | **Required** |
 | `POSITIONING_HOOKS.md` | Current drum-beats from the consultant's content (latest piece, primary headline, prospects it lands with) | **Required** — elicited inline on first run if missing |
-| `IDEAL_CLIENT.md` | Green/red flag signal map for the consultant's offer | Optional — improves angle selection if present |
+| `ICP.md` | Ideal-client-profile signal map (green/red flags). Owned by `prep-discovery`. | Optional — improves angle selection if present |
 | Prospect dossier | Output of `lead-dossier-builder` or an equivalent file | **Required** — built on the fly if missing |
 | `OUTREACH_DATABASE` (CSV/md) | Prospect roster for batch mode | Optional — single-prospect mode works without it |
 | `outreach-angles.yml` | Override the three default angles | Optional — defaults ship and are good across consulting domains |
@@ -60,7 +60,7 @@ Then run the questions below, **one at a time**. Wait for each answer before mov
 > "One or two links to where this hook is showing up publicly — a podcast episode, an article, a LinkedIn post, a newsletter. Paste URLs. (If nothing's published yet, say so — we'll mark it as a pre-launch hook.)"
 
 ### Question 4 — Who it lands with
-> "Which prospects does this hook land with most? Describe the situation, not the demographics — e.g., 'EDs who just survived a strategic plan and are watching their board drift,' not 'mid-size nonprofits.'"
+> "Which prospects does this hook land with most? Describe the situation they're in, not the demographic label. Situations land — labels don't. Examples of the right shape: 'founders who just raised a Series A and are watching churn for the first time,' 'practice owners six months after hiring their second associate and realising the model is breaking,' 'leaders coming out of a strategic plan and watching the energy drain.' Avoid: 'mid-size SaaS companies,' 'small business owners,' 'executives.'"
 
 ### Question 5 — Secondary hooks (optional, skip cleanly if not ready)
 > "Any secondary positioning hooks I should know about — alternates you'd use for a different audience segment or off-primary positioning? Skip if the primary is the only one for now."
@@ -196,7 +196,7 @@ Never leave the user stuck. Always offer the next best step.
 
 **Recommended next step:** <e.g., "Send Variant 1 Thursday morning. If no reply by Tuesday, send Variant 3 as follow-up referencing the first message.">
 
-**Future touches:** <suggested cadence + content tether — e.g., "Next month's piece on board-ED partnership will be a natural reason to circle back if no reply.">
+**Future touches:** <suggested cadence + content tether — e.g., "The next piece in the consultant's content series will be a natural reason to circle back if no reply.">
 ```
 
 ### Ping mode (special case)
@@ -240,7 +240,7 @@ Run every variant through this list before presenting:
 
 Each of the three variants must contain:
 
-1. **Opener.** References the specific prospect hook by content, not by generic compliment. "Your piece on board re-engagement on Tuesday" not "Loved your recent post."
+1. **Opener.** References the specific prospect hook by content, not by generic compliment. "Your post on Tuesday — the part about <verbatim phrase or specific claim>" not "Loved your recent post."
 2. **Bridge.** Connects the prospect's hook to an idea, observation, or stance that reflects the consultant's current positioning hook — without pitching.
 3. **Positioning tether.** The consultant's `current_primary_hook` shows up through framing or language. Don't name the hook explicitly (don't say "you need [Methodology]"). Reflect it.
 4. **Ask or close.** Specific, accept/decline-able in one beat. Vague asks get vague answers.

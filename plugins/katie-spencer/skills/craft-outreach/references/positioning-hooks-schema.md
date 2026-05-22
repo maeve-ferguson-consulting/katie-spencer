@@ -17,24 +17,30 @@ current_primary_hook:
     - <URL of the most recent piece pushing this hook>
     - <URL of a second piece, if available>
   prospects_it_lands_with: >
-    Situation-based description of who this hook reaches, not demographic
-    description. E.g., "EDs who just survived a strategic plan and are
-    watching their board drift," not "mid-size nonprofits."
+    Situation-based description of who this hook reaches, not a demographic
+    label. Situations land — labels don't. Right shape:
+    "founders who just raised a Series A and are watching churn for the
+    first time," "practice owners six months after hiring their second
+    associate and realising the model is breaking," "leaders coming out of
+    a strategic plan and watching the energy drain." Avoid:
+    "mid-size SaaS companies," "small business owners," "executives."
 
 recent_pieces:
   # Most recent first. Each piece is fair game for outreach to reference.
-  - title: <e.g., "Why Your Nonprofit Board Is Disengaged and Exactly How to Fix It">
+  - title: <verbatim title of the piece>
     url: <podcast URL, article URL, newsletter URL>
     published: <ISO date, e.g., 2026-01-15>
-    one_line_takeaway: <e.g., "Disengagement is a role-clarity failure, not apathy.">
+    one_line_takeaway: <one-line summary in the consultant's voice — what the piece argues>
     quotable_lines:
-      - <grab-able phrase 1>
-      - <grab-able phrase 2>
+      - <verbatim phrase 1 from the piece — must be grabbable in outreach>
+      - <verbatim phrase 2>
 
 secondary_hooks:
   # Optional. Alternates the consultant uses for different audience segments
-  # or off-primary positioning (e.g., Lane A vs Lane B). Skip cleanly if there
-  # is no secondary hook yet.
+  # or off-primary positioning. Some consultants carry two or more
+  # positioning lanes (e.g., a services brand and a speaking-driven niche
+  # brand) — secondary_hooks is where the off-primary line lives. Skip
+  # cleanly if there is no secondary hook yet.
   - headline: <alternate hook>
     used_for: <which segment / situation>
 ```
