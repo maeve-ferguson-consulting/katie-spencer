@@ -1,8 +1,8 @@
-# IDEAL_CLIENT.md schema
+# ICP.md schema
 
-The `prep-discovery` skill reads consultant-specific ideal-client signal mapping from a single document called `IDEAL_CLIENT.md` that lives in the consultant's Claude Project Knowledge. This file defines the contract.
+The `prep-discovery` skill reads consultant-specific ideal-client-profile (ICP) signal mapping from a single document called `ICP.md` that lives in the consultant's Claude Project Knowledge. This file defines the contract.
 
-`IDEAL_CLIENT.md` is the consultant's mental signal map, made legible to a skill. Every entry the consultant adds sharpens the next briefing.
+`ICP.md` is the consultant's mental signal map, made legible to a skill. Every entry the consultant adds sharpens the next briefing.
 
 ---
 
@@ -98,7 +98,7 @@ Remove the marker the instant the consultant confirms a section is theirs.
 
 ## First-run elicitation
 
-When `IDEAL_CLIENT.md` is missing, `prep-discovery` elicits inline (per the Option-B inline-elicitation decision in the shared-context handoff) before researching. Goal: a usable signal map in 5 minutes, not a perfect one.
+When `ICP.md` is missing, `prep-discovery` elicits inline (per the Option-B inline-elicitation decision in the shared-context handoff) before researching. Goal: a usable signal map in 5 minutes, not a perfect one.
 
 ### Step 1 — domain (one question)
 
@@ -126,7 +126,7 @@ For each green flag, ask the consultant for a literal listen-for phrase ("what w
 
 ### Step 6 — save and proceed
 
-Write `IDEAL_CLIENT.md` to the working directory. If any section is starter-only, emit the `<!-- PROVISIONAL: ... -->` marker on that section. Tell the consultant: "Upload `IDEAL_CLIENT.md` to your Claude Project Knowledge. I'll use it for this brief and every future one. The PROVISIONAL sections will sharpen as you refine them after real calls."
+Write `ICP.md` to the working directory. If any section is starter-only, emit the `<!-- PROVISIONAL: ... -->` marker on that section. Tell the consultant: "Upload `ICP.md` to your Claude Project Knowledge. I'll use it for this brief and every future one. The PROVISIONAL sections will sharpen as you refine them after real calls."
 
 Then continue to Phase 0 of the briefing.
 

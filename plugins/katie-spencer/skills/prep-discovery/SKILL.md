@@ -1,13 +1,13 @@
 ---
 name: prep-discovery
-description: "Build a universal pre-discovery-call intelligence briefing for a prospect. From a name + URL (or dossier, calendar blob, partial info), produce an internal markdown brief telling the consultant what to ask, what to listen for, and which offer to recommend. Trigger on /intel, /prepcall, /discovery-prep, /research, 'prep me for the call with X', 'I have a call with X tomorrow', 'research this prospect', 'who is X before our call', or any pre-call research ask. Reads BRAND.md (voice, signature framework), SERVICES.md or the Offer Bank section of BRAND.md (offer catalog), and IDEAL_CLIENT.md (green/red-flag signal map). If IDEAL_CLIENT.md is missing, elicits inline on first run and saves it with a PROVISIONAL marker. Every signal claim must cite evidence + source URL — no fabrication. Lane-aware when the consultant's brand declares positioning lanes. Internal-only output; not for the prospect. NOT for post-call sales artifacts, cold outreach, generic web research, or competitor analysis."
+description: "Build a universal pre-discovery-call intelligence briefing for a prospect. From a name + URL (or dossier, calendar blob, partial info), produce an internal markdown brief telling the consultant what to ask, what to listen for, and which offer to recommend. Trigger on /intel, /prepcall, /discovery-prep, /research, 'prep me for the call with X', 'I have a call with X tomorrow', 'research this prospect', 'who is X before our call', or any pre-call research ask. Reads BRAND.md (voice, signature framework), SERVICES.md or the Offer Bank section of BRAND.md (offer catalog), and ICP.md (green/red-flag signal map). If ICP.md is missing, elicits inline on first run and saves it with a PROVISIONAL marker. Every signal claim must cite evidence + source URL — no fabrication. Lane-aware when the consultant's brand declares positioning lanes. Internal-only output; not for the prospect. NOT for post-call sales artifacts, cold outreach, generic web research, or competitor analysis."
 ---
 
 # PREP DISCOVERY
 
 Universal pre-discovery-call research skill. Produces an internal markdown briefing the consultant reads in five minutes before a prospect call — what to ask, what to listen for, which offer to recommend.
 
-This skill is consulting-practice-agnostic. Every consultant-specific input (voice, offers, ideal-client signals) is read at runtime from documents in the consultant's Claude Project Knowledge. The skill itself never names a person, an offer, or a methodology — that always comes from the project layer.
+This skill is consulting-practice-agnostic. Every consultant-specific input (voice, offers, ideal-client-profile signals) is read at runtime from documents in the consultant's Claude Project Knowledge. The skill itself never names a person, an offer, or a methodology — that always comes from the project layer.
 
 ---
 
@@ -17,27 +17,48 @@ Three documents in the consultant's Claude Project Knowledge:
 
 1. `BRAND.md` — voice, signature framework name, signature phrases. Conforms to the schema in `define-brand-voice/references/brand-schema.md`. Required.
 2. `SERVICES.md` **or** the `Offer Bank` section of `BRAND.md` — the catalog of offers the briefing will rank against the prospect's signals. Required.
-3. `IDEAL_CLIENT.md` — the signal map: green flags, red flags, listen-for phrases, signal categories. Required. **This skill owns this document.** If missing, the skill elicits it inline on the first run (see `references/ideal-client-schema.md`).
+3. `ICP.md` — the signal map: green flags, red flags, listen-for phrases, signal categories. Required. **This skill owns this document.** If missing, the skill elicits it inline on the first run (see `references/icp-schema.md`).
 
-If a required document is missing or empty, do NOT substitute defaults. Stop, name the missing artifact, and either invoke the right next step (`define-brand-voice` for BRAND.md) or run the inline elicitation (for IDEAL_CLIENT.md). Shipping a briefing built on guessed signals is worse than shipping nothing — it teaches the consultant to distrust the output.
+If a required document is missing or empty, do NOT substitute defaults. Stop, name the missing artifact, and either invoke the right next step (`define-brand-voice` for BRAND.md) or run the inline elicitation (for ICP.md). Shipping a briefing built on guessed signals is worse than shipping nothing — it teaches the consultant to distrust the output.
 
 ---
 
 ## PRECHECK (run before anything else)
 
-1. Look for `BRAND.md` in the conversation context.
-   - **Missing or empty required section?** Stop. Tell the user, in your own words: "I need your `BRAND.md` to know whose voice and offers I'm working with. Run `define-brand-voice` (~15 min), save the result to your Claude Project Knowledge, then come back. Your prospect details will be preserved."
-   - **Required section marked `<!-- PROVISIONAL: ... -->`?** Soft-stop. Warn the user the brief will reference placeholder voice/identity; offer to proceed anyway only on explicit confirmation.
+**Verbalize what you're checking for, then report what you found.** The user should see the skill name the three docs by name before research starts — that prevents silent guessing and gives them a moment to upload a doc they forgot about.
 
-2. Look for an offer catalog — either `SERVICES.md` (preferred) or `BRAND.md > Offer Bank` (fallback).
-   - **Neither present?** Stop and ask: "I can't recommend an offer without your offer catalog. Do you want to (a) point me to `SERVICES.md`, (b) let me read offers from `BRAND.md > Offer Bank`, or (c) elicit a quick catalog inline now?" Wait. Do not guess.
-   - **Both present?** Use `SERVICES.md` (it's the canonical, more detailed source).
+Open with, in your own words:
 
-3. Look for `IDEAL_CLIENT.md`.
-   - **Missing?** Run the inline elicitation in `references/ideal-client-schema.md` § "First-run elicitation." Save the result to `IDEAL_CLIENT.md` in the conversation working directory and tell the user to upload it to their Project Knowledge. If the user is rushing or skips fields, write the section with `<!-- PROVISIONAL: starter, replace before relying on output -->` and proceed.
-   - **Present but PROVISIONAL?** Soft-warn the user. The brief will be only as sharp as the signal map.
+> "Before I research [prospect], let me confirm the three docs I need are in your Project Knowledge:
+>   1. **`BRAND.md`** — your voice, signature framework, offer catalog
+>   2. **`SERVICES.md`** *(or your `BRAND.md > Offer Bank`)* — the offers I'll recommend from
+>   3. **`ICP.md`** — your ideal-client-profile signal map (green flags, red flags, listen-for phrases)
+>
+> Checking now…"
 
-4. If all three are present and non-provisional, proceed to Phase 0.
+Then look for each in the conversation context (Project Knowledge is injected there).
+
+### 1. `BRAND.md`
+- **Missing or empty required section?** Stop. Tell the user: "Your `BRAND.md` isn't in Project Knowledge yet. Do you have one I should look at, or should we run `define-brand-voice` first (~15 min)? Your prospect details will be preserved either way."
+- **Required section marked `<!-- PROVISIONAL: ... -->`?** Soft-stop. Warn the brief will reference placeholder voice/identity; offer to proceed anyway only on explicit confirmation.
+
+### 2. Offer catalog (`SERVICES.md` or `BRAND.md > Offer Bank`)
+- **Neither present?** Stop and ask: "I don't see an offer catalog. Options: (a) you have a `SERVICES.md` to upload, (b) let me read offers from `BRAND.md > Offer Bank` (point me at where they live), or (c) elicit a quick catalog inline now (5 min). Which?" Wait. Do not guess.
+- **Both present?** Use `SERVICES.md` (it's the canonical, more detailed source).
+
+### 3. `ICP.md`
+- **Missing?** Ask first: "I don't see your `ICP.md`. Do you have one already that I should look at, or is this your first time and I should walk you through capturing it (5 min, one question at a time)?" If they have one, wait for it. If they don't, run the inline elicitation in `references/icp-schema.md` § "First-run elicitation" — save the result to `ICP.md` in the conversation working directory and tell the user to upload it to their Project Knowledge for next time. If the user is rushing or skips fields, write the section with `<!-- PROVISIONAL: starter, replace before relying on output -->` and proceed.
+- **Present but PROVISIONAL?** Soft-warn the user. The brief will be only as sharp as the signal map.
+
+### Report what you found
+
+Before proceeding to Phase 0, give the user a one-line summary:
+
+> "Found: `BRAND.md` ✓, `BRAND.md > Offer Bank` ✓ (no `SERVICES.md`), `ICP.md` ✓. Proceeding with research on [prospect]."
+
+If anything is PROVISIONAL or was just elicited inline, name it in the summary so the user knows the brief inherits that softness.
+
+If a required document is missing or empty, do NOT substitute defaults. Shipping a briefing built on guessed signals is worse than shipping nothing — it teaches the consultant to distrust the output.
 
 ---
 
@@ -76,7 +97,7 @@ If the consultant volunteered context ("she was referred by X," "we met at the c
 
 ## PHASE 1 — WEB PRESENCE SWEEP
 
-Fan out parallel research agents in a single message. The agent topics come from two places: a universal core, and the `signal_categories` list in `IDEAL_CLIENT.md`. Brief each agent well — they don't see the full conversation context.
+Fan out parallel research agents in a single message. The agent topics come from two places: a universal core, and the `signal_categories` list in `ICP.md`. Brief each agent well — they don't see the full conversation context.
 
 **Universal core agents (always spawn):**
 
@@ -84,7 +105,7 @@ Fan out parallel research agents in a single message. The agent topics come from
 - **Prospect contact profile:** background, tenure, prior roles, public statements, podcast appearances, articles authored. Anchor the brief on the human, not just the org.
 - **IP / brand voice scan:** what is the prospect saying publicly *right now*? What's their stated theory of their own problem? What language do they use? Pull from blog, social, recent talks, podcast interviews.
 
-**Domain-specific agents (read from `IDEAL_CLIENT.md > signal_categories` and spawn one per category):**
+**Domain-specific agents (read from `ICP.md > signal_categories` and spawn one per category):**
 
 For a nonprofit board governance consultant, `signal_categories` will include things like board composition, 990 filings, capital campaigns, ED transitions, governance signals. For a SaaS GTM consultant, the categories will be different — funding stage, hiring patterns, product launches, exec changes. The skill must adapt to the consultant's domain rather than imposing one.
 
@@ -105,7 +126,7 @@ Distill from Phase 1:
 
 ## PHASE 3 — SIGNAL EXTRACTION
 
-Score the prospect against every entry in `IDEAL_CLIENT.md > green_flags` and `red_flags`. For each signal:
+Score the prospect against every entry in `ICP.md > green_flags` and `red_flags`. For each signal:
 
 - **Fired / Partial / Not fired / Insufficient evidence**
 - **Evidence:** one-sentence quote or fact from the research, with the URL
@@ -123,7 +144,7 @@ Match the firing signals to the consultant's offer catalog (`SERVICES.md` or `BR
 - **Fallback:** the next-best offer if the prospect pushes back on price or scope.
 - **Stretch:** the larger offer to surface if the prospect proves to be more ready than they sound on the inbound.
 
-**Lane awareness (when the consultant's BRAND.md declares positioning lanes):** if `current_lane` is set and the firing signals point to the *other* lane, do NOT silently switch lanes. Surface the tension: "Your current_lane is A, but this prospect's signals match flags tagged for Lane B in your IDEAL_CLIENT.md. Worth a moment on the call to clarify which conversation they want to have."
+**Lane awareness (when the consultant's BRAND.md declares positioning lanes):** if `current_lane` is set and the firing signals point to the *other* lane, do NOT silently switch lanes. Surface the tension: "Your current_lane is A, but this prospect's signals match flags tagged for Lane B in your ICP.md. Worth a moment on the call to clarify which conversation they want to have."
 
 **The offer recommendation is a starting frame, not a prediction.** Say so. The consultant decides after the call.
 
@@ -157,7 +178,7 @@ Use the consultant's signature framework name (from `BRAND.md`) where relevant �
 - The trigger that brought them to the call (inbound signal, referral, opt-in context)
 - What's likely driving the inquiry beneath the stated reason
 
-## Signals fired (from IDEAL_CLIENT.md)
+## Signals fired (from ICP.md)
 | Signal | Status | Evidence | Listen-for on the call |
 |---|---|---|---|
 | <flag> | ✅ Fired / ⚠️ Partial / ❌ Red / — Insufficient | <quote + URL> | <literal phrase / pattern> |
@@ -247,7 +268,7 @@ Section order matters. The TL;DR must be readable in 10 seconds. The consultant 
 
 ### Project-knowledge alignment
 - [ ] Offer recommendation pulled from `SERVICES.md` or `BRAND.md > Offer Bank` — verbatim names.
-- [ ] Signals scored against every entry in `IDEAL_CLIENT.md > green_flags` and `red_flags`.
+- [ ] Signals scored against every entry in `ICP.md > green_flags` and `red_flags`.
 - [ ] Lane awareness applied if `BRAND.md > Positioning > current_lane` is set.
 - [ ] Signature framework name from `BRAND.md` referenced where it sharpens guidance.
 
@@ -271,13 +292,13 @@ Section order matters. The TL;DR must be readable in 10 seconds. The consultant 
 
 ## AFTER THE BRIEFING — ONE SUGGESTION
 
-After presenting the brief, surface ONE specific elaboration the consultant could make to `IDEAL_CLIENT.md` based on what the research just revealed. Examples:
+After presenting the brief, surface ONE specific elaboration the consultant could make to `ICP.md` based on what the research just revealed. Examples:
 
-- "I flagged 'capital campaign approaching' as a green flag but it's not in your IDEAL_CLIENT.md yet — want to add it?"
-- "Your IDEAL_CLIENT.md doesn't list 'post-strategic-plan drift' as a signal category, but it would have sharpened this brief. Want me to add it?"
+- "I flagged 'capital campaign approaching' as a green flag but it's not in your ICP.md yet — want to add it?"
+- "Your ICP.md doesn't list 'post-strategic-plan drift' as a signal category, but it would have sharpened this brief. Want me to add it?"
 - "I couldn't confirm the prospect's board size from public sources. Worth listing 'board size unknown' as a Phase 1 follow-up the dossier-builder should grab next time."
 
-One concrete editing prompt the consultant can act on in 30 seconds. Do NOT edit `IDEAL_CLIENT.md` programmatically — surface the suggestion; they decide.
+One concrete editing prompt the consultant can act on in 30 seconds. Do NOT edit `ICP.md` programmatically — surface the suggestion; they decide.
 
 ---
 
