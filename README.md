@@ -28,6 +28,7 @@ Enable "Sync automatically" to receive updates as new skills ship.
 | write-newsletter | `/newsletter` | Live |
 | repurpose-content | `/repurpose` | Live |
 | chief-of-staff | `/chief` | Live |
+| content-strategist | `/strategist` | Live |
 
 ## Project Knowledge
 
