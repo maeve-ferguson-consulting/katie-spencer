@@ -45,7 +45,7 @@ If a required document is missing or empty, do NOT substitute defaults. Stop, na
 
 Activates on: `/intel`, `/prepcall`, `/discovery-prep`, `/research <name>`, "prep me for the call with [Name]", "I have a call with [Name] tomorrow", "research [Name] before our call", "who is [Name]", "what do we know about [Name]", or any request to prepare for a first prospect call.
 
-If only a name is given ("Sally Heinz at MIFA"), figure out the URL via web search. If a calendar event blob is pasted, extract the prospect's name and org from it. If a path to a prospect dossier is given, read it and skip the web-presence sweep for fields the dossier already covers.
+If only a name is given (e.g., "[contact name] at [org name]"), figure out the URL via web search. If a calendar event blob is pasted, extract the prospect's name and org from it. If a path to a prospect dossier is given, read it and skip the web-presence sweep for fields the dossier already covers.
 
 ---
 
@@ -53,7 +53,7 @@ If only a name is given ("Sally Heinz at MIFA"), figure out the URL via web sear
 
 Accept any of these, most-to-least common. Do not insist on a particular shape:
 
-1. Prospect org name + URL ("Sally Heinz, MIFA, mifa.org")
+1. Prospect contact name + org + URL (e.g., "[contact name], [org name], [domain]")
 2. Prospect contact name + org (skill discovers URL)
 3. Path to a prospect dossier (from a dossier-builder skill or hand-written)
 4. Calendar event blob (extract name + org from attendee fields and event description)
@@ -123,7 +123,7 @@ Match the firing signals to the consultant's offer catalog (`SERVICES.md` or `BR
 - **Fallback:** the next-best offer if the prospect pushes back on price or scope.
 - **Stretch:** the larger offer to surface if the prospect proves to be more ready than they sound on the inbound.
 
-**Lane awareness (when the consultant's BRAND.md declares positioning lanes):** if `current_lane` is set and the firing signals point to the *other* lane, do NOT silently switch lanes. Surface the tension: "Your current_lane is A, but this prospect's signals (board chair turnover, governance gap) lean toward your Lane B offers (Board Ready). Worth a moment on the call to clarify which conversation they want to have."
+**Lane awareness (when the consultant's BRAND.md declares positioning lanes):** if `current_lane` is set and the firing signals point to the *other* lane, do NOT silently switch lanes. Surface the tension: "Your current_lane is A, but this prospect's signals match flags tagged for Lane B in your IDEAL_CLIENT.md. Worth a moment on the call to clarify which conversation they want to have."
 
 **The offer recommendation is a starting frame, not a prediction.** Say so. The consultant decides after the call.
 

@@ -51,8 +51,8 @@ disqualifiers:               # hard-stop signals that should block the call
     why: <reason>
 
 contextual_modifiers:        # things that shift offer weight without firing on their own
-  - signal: <e.g., "board includes 2+ donors over 7% of operating budget">
-    modifier: <e.g., "raises stakes on board-ED tension; weight Board Ready higher">
+  - signal: <e.g., "high-stakes timing constraint visible in their public moves">
+    modifier: <e.g., "weight the urgency-oriented offer higher; surface the constraint on the call">
 ```
 
 ---
@@ -116,7 +116,7 @@ Draft a starter set if needed (examples baked into the schema comments above). C
 
 ### Step 4 — green flags (one question)
 
-> "What 3–6 things, if true about a prospect, tell you it's a strong fit? Each one should map to a specific offer in your catalog. Example: 'board chair turnover in last 12 months → Board Ready program.' I'll work with whatever you give me; we can refine after the next couple of calls."
+> "What 3–6 things, if true about a prospect, tell you it's a strong fit? Each one should map to a specific offer in your catalog. Example: 'recent leadership transition in the last 12 months → your leadership-transition offer.' I'll work with whatever you give me; we can refine after the next couple of calls."
 
 For each green flag, ask the consultant for a literal listen-for phrase ("what would they actually say on the call?"). If the consultant can't give one, draft from public-facing material in `BRAND.md` and confirm.
 
@@ -132,62 +132,54 @@ Then continue to Phase 0 of the briefing.
 
 ---
 
-## Example — nonprofit board governance niche
+## Example — B2B SaaS GTM consultant (fictional)
+
+A worked example using a fictional consultant's domain. All offer names and signals are illustrative — yours will be different. The shape is what matters.
 
 ```yaml
-domain: "nonprofit board governance and organizational health"
+domain: "B2B SaaS go-to-market strategy for Series A/B companies"
 
 audience_types:
-  - "ED/CEO of mid-size nonprofit (3-15 staff, $1M-$10M operating budget)"
-  - "board chair, mid-size nonprofit"
-  - "community foundation program officer"
-  - "state nonprofit association executive"
+  - "VP Marketing or VP Sales at a Series A/B SaaS company"
+  - "founder/CEO of a Series A SaaS company without a senior GTM hire yet"
+  - "Chief Revenue Officer joining in the first 6 months"
 
 signal_categories:
-  - board_composition         # who's on the board, tenure, turnover
-  - funding_moves             # capital campaigns, major-gift moves, grant shifts
-  - leadership_transition     # ED turnover, search underway, planned succession
-  - governance_signals        # bylaws revisions, committee restructures, board retreats
-  - capital_campaign_status   # in planning, in silent phase, recently closed
+  - funding_stage             # recent rounds, runway commentary, valuation moves
+  - hiring_patterns           # GTM hires posted, sales/marketing team growth or freeze
+  - product_launches          # major release cadence, expansion into new segments
+  - exec_changes              # VP/CRO/CMO turnover, board changes
+  - pricing_moves             # public price changes, packaging shifts, new tiers
 
 green_flags:
-  - signal: "board chair turnover in last 12 months"
-    indicates: "Board Ready Program"
-    listen_for: "'our new chair is figuring things out' / 'the board feels different lately'"
-    lane: B
-
-  - signal: "post-strategic-plan drift — plan exists, execution stalled"
-    indicates: "Strategic Planning"
-    listen_for: "'we wrote a great plan but...' / 'we're not sure where we are on the plan'"
+  - signal: "Series A or B raised in last 6 months with stated GTM scaling thesis"
+    indicates: "GTM Foundations Sprint"
+    listen_for: "'we just raised and we know we need to build the engine' / 'the board wants to see efficient growth'"
     lane: A
 
-  - signal: "capital campaign in next 24 months"
-    indicates: "Organizational Health/Synergy"
-    listen_for: "'we're getting ready for a campaign' / 'board readiness for the campaign'"
-    lane: A_or_B
+  - signal: "VP Marketing or VP Sales hired in last 90 days"
+    indicates: "First-90-Days Playbook"
+    listen_for: "'I'm new and trying to figure out what's working' / 'I'm building from what I inherited'"
+    lane: A
 
-  - signal: "succession moment — ED retiring/transitioning in next 18 months"
-    indicates: "Succession Planning"
-    listen_for: "'I'm thinking about what's next' / 'the board hasn't started talking about it'"
-    lane: A_or_B
+  - signal: "ICP drift — selling into too many segments, win rates declining"
+    indicates: "ICP Reset Engagement"
+    listen_for: "'we close everywhere but nowhere well' / 'every deal looks different'"
+    lane: B
 
-  - signal: "ED-board tension language"
-    indicates: "Board Ready Program"
-    listen_for: "'I spend my time managing the board' / 'we can't get the board to focus'"
+  - signal: "pricing/packaging change in last 12 months without measurable lift"
+    indicates: "Pricing Reset Engagement"
+    listen_for: "'we changed pricing but it didn't move the needle' / 'we don't know if we're priced right'"
     lane: B
 
 red_flags:
-  - signal: "'we just need a fundraising consultant'"
-    why: "fundraising-as-symptom framing; consultant explicitly does not consult on fundraising"
-    redirect: "reframe to the readiness work that fundraising depends on; offer a referral if they hold the frame"
+  - signal: "'we just need more leads'"
+    why: "lead-volume-as-symptom framing; this consultant works on conversion economics, not top-of-funnel"
+    redirect: "reframe to the conversion gaps the lead engine would feed into; refer to a demand-gen specialist if they hold the frame"
 
-  - signal: "board or ED refuses to make focus choices"
-    why: "all of the consultant's offers require willingness to narrow"
-    redirect: "name it; offer a one-session diagnostic before any larger engagement"
-
-  - signal: "avoidance language about a specific board member or staff conflict"
-    why: "consulting can't resolve avoidance the consultant isn't licensed to mediate"
-    redirect: "name it; recommend appropriate help (executive coach, mediator) before consulting work"
+  - signal: "founder unwilling to narrow ICP"
+    why: "every engagement requires willingness to focus; without it, the work doesn't take"
+    redirect: "name it; offer a one-session ICP diagnostic as the readiness test before any larger engagement"
 ```
 
-This example matches a nonprofit board governance consultant. The schema itself is universal — the same shape works for SaaS GTM, private-practice operations, executive coaching, or any other consulting practice with a discovery → proposal flow.
+This example uses a B2B SaaS GTM consultant — a different domain from any specific consultant who might be reading it. The schema itself is universal: the same shape works for nonprofit board governance, private-practice operations, executive coaching, or any other consulting practice with a discovery → proposal flow.
