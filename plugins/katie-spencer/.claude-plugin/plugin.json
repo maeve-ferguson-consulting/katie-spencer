@@ -9,6 +9,7 @@
     "./skills/build-carousel",
     "./skills/build-story",
     "./skills/speaking-engagement-scout",
-    "./skills/craft-outreach"
+    "./skills/craft-outreach",
+    "./skills/prep-discovery"
   ]
 }

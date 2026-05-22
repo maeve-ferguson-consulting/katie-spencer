@@ -23,8 +23,8 @@ ALL_SKILLS=(
   build-story
   speaking-engagement-scout
   craft-outreach
+  prep-discovery
   # Add new skills here when they land in the skill-bank:
-  # prep-discovery
   # build-proposal
   # build-agreement
 )
