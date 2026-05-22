@@ -22,11 +22,11 @@ ALL_SKILLS=(
   build-carousel
   build-story
   speaking-engagement-scout
+  craft-outreach
   # Add new skills here when they land in the skill-bank:
   # prep-discovery
   # build-proposal
   # build-agreement
-  # craft-outreach
 )
 
 if [[ $# -gt 0 ]]; then
