@@ -1,6 +1,6 @@
 {
   "name": "katie-spencer",
-  "description": "Sales pipeline and content skills for Katie Spencer / Zipline Consulting — v1.7.0 · adds content-strategist (builds positioning, voice, IP, belief shifts, offers via interview)",
+  "description": "Sales pipeline, content, and strategic-planning skills for Katie Spencer / Zipline Consulting — v1.8.0 · adds the strategy cascade: /plan-year, /plan-quarter, /plan-month, /plan-week (each level reads the one above)",
   "owner": {
     "name": "Chad Owen",
     "email": "chad@maeveferguson.com"
@@ -9,7 +9,7 @@
     {
       "name": "katie-spencer",
       "source": "./plugins/katie-spencer",
-      "description": "Board governance consulting skills for Katie Spencer — prep-discovery, build-proposal, build-agreement, craft-outreach, and content tools",
+      "description": "Board governance consulting skills for Katie Spencer — prep-discovery, build-proposal, build-agreement, craft-outreach, content tools, and a strategic-planning cascade (annual/quarterly/monthly/weekly)",
       "author": {
         "name": "Chad Owen"
       }

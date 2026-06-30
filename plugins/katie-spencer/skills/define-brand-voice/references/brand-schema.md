@@ -1,6 +1,6 @@
 # BRAND.md Schema
 
-The `build-carousel` and `build-story` skills read brand context from a single document called `BRAND.md` that lives in the client's Claude Project Knowledge. This is that document's schema.
+The content-build skills (`build-carousel`, `build-story`) and the strategic-planning cascade (`/plan-year`, `/plan-quarter`, `/plan-month`, `/plan-week`) read brand context from a single document called `BRAND.md` that lives in the client's Claude Project Knowledge. This is that document's schema.
 
 The matching `define-brand-voice` skill produces a `BRAND.md` in this shape via an interactive interview. This file is the contract between the two.
 
@@ -103,6 +103,6 @@ A required section can be structurally complete but hold *starter defaults*, not
 
 ## How the skill parses this
 
-Both skills look for `BRAND.md` in the conversation context (injected from Claude Project Knowledge). The first occurrence of each section heading is the source of truth. If a required section is missing or its body is empty, the skill stops and invokes `define-brand-voice`. If a required section is present but marked PROVISIONAL (see above), the skill soft-stops: warn and offer render-anyway, do not proceed silently.
+Consuming skills look for `BRAND.md` in the conversation context (injected from Claude Project Knowledge). The first occurrence of each section heading is the source of truth. If a required section is missing or its body is empty, the skill stops and invokes `define-brand-voice`. If a required section is present but marked PROVISIONAL (see above), the skill soft-stops: warn and offer render-anyway, do not proceed silently.
 
 Hex colors are validated as `#RRGGBB`. Font names are looked up against installed fonts; missing fonts fall back to the declared fallback chain.

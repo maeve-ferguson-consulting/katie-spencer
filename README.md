@@ -29,6 +29,12 @@ Enable "Sync automatically" to receive updates as new skills ship.
 | repurpose-content | `/repurpose` | Live |
 | chief-of-staff | `/chief` | Live |
 | content-strategist | `/strategist` | Live |
+| annual-strategic-planner | `/plan-year` | Live |
+| quarterly-strategic-planner | `/plan-quarter` | Live |
+| monthly-gameplan | `/plan-month` | Live |
+| weekly-plan | `/plan-week` | Live |
+
+**Two kinds of planning:** `/plan` plans your **content** (a month of newsletters/posts). The `/plan-*` family plans your **business** — a strategic cascade where each level reads the one above: `/plan-year` (the 10x vision) → `/plan-quarter` (the ONE outcome) → `/plan-month` (the Big 3) → `/plan-week` (the weekly review). Run them top-down, or jump in at the level you need.
 
 ## Project Knowledge
 
